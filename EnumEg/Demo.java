@@ -10,10 +10,36 @@ enum Status { // basically this status is class here
 }
 // we can have this as constants
 
+// we cannot extend enum
+// but we can use methods, constructors
+
+// by default enum extends enum class
+
+enum Laptop {
+    Macbook(2000), XPS(3000), Surface(1500);
+
+    private int price;
+
+    private Laptop(int price) {
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+}
+
 public class Demo {
     public static void main(String[] args) {
+
         Status s = Status.Running;
         System.out.println(s); // RUnning is printed
+
+        System.out.println(s.getClass().getSuperclass());
 
         System.out.println(s.ordinal());// gives it index
 
@@ -33,5 +59,19 @@ public class Demo {
             System.out.println("Success");
         else
             System.out.println("Running");
+
+        switch (s) {
+            case Running:
+                System.out.println("Running");
+                break;
+
+            default:
+                System.out.println("Not running");
+                break;
+        }
+
+        Laptop lap = Laptop.Macbook;
+
+        System.out.println(lap.getPrice());
     }
 }
