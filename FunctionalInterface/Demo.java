@@ -53,6 +53,10 @@ public class Demo {
 
         A obj5 = i -> System.out.println("Inside obj 4" + i);// this works
 
+        // even when we usse int or string or anyother we need not return anything when
+        // it is single line like below
+        // A obj = (i,j) -> i+j;
+        // int result = obj.add(5,6)-> i+j;
         obj4.show(4);
 
     }
